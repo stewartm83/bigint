@@ -16,29 +16,33 @@ Below you can find a comprehensive overview of what is due during each phase of 
 
 -----
 
-## Milestone 1
+## Submitting
+
+For both Milestone 1 and Milestone 2, you will submit your code to Mimir. All you need to submit is `bigint.cpp`, since we've already given you `bigint.h` and a `compile` script.
+
+## Milestone 1 - Due Thursday, March 8th by 2PM (before class)
 
 For this milestone, you will get the construction, number access, comparison and display methods working.
 
-After completing this milestone you should be able to build a BigInt from any source, as well as print out contents, examine the underlying structure, and test for equality between BigInts.
+After completing this milestone you should be able to build a `BigInt` from any source, as well as print out contents, examine the underlying structure, and test for equality between BigInts.
 
 ### Constructors
 
 #### Default constructor
 
-`bigint a;` yields a BigInt equal to 0.
+`bigint a;` yields a `BigInt` equal to 0.
 
 #### String Constructor
 
-`bigint a("100000000");` yields a BigInt equal to the integer value of the string provided, in this case: 100,000,000.
+`bigint a("100000000");` yields a `BigInt` equal to the integer value of the string provided, in this case: 100,000,000.
 
 #### Integer Constructor
 
-`bigint a(100);` yields a BigInt equal to the integer provided, in this case: 100. Integers can be up to unsigned long long in size.
+`bigint a(100);` yields a `BigInt` equal to the integer provided, in this case: 100. Integers can be up to `unsigned long long` in size.
 
 #### File Constructor
 
-`bigint a(infile);` yields a BigInt equal to the integer value of the string stored in the `infile`. 
+`bigint a(infile);` yields a `BigInt` equal to the integer value of the string stored in the `infile`. 
 
 Reading to and from files allows users to save their work to local memory, and resuming running arbitrarily large computations.
 
@@ -48,15 +52,15 @@ Reading to and from files allows users to save their work to local memory, and r
 bigint a(0);
 bigint b(a); // Creates b from a.
 ```
-Yields two equivalent BigInts, both equal to 0 in this case. 
+Yields two equivalent `BigInts`, both equal to 0 in this case. 
 
-Yields two equivalent BigInts, both equal to 0 in this case.
+Yields two equivalent `BigInt`s, both equal to 0 in this case.
 
 ### Methods
 
 #### to_string( bool commas = false )
 
-Returns the string interpretation of the BigInt, with an optional flag to generate a string that utilizes commas for formatting.
+Returns the string interpretation of the `BigInt`, with an optional flag to generate a string that utilizes commas for formatting.
 
 ```c++
 bigint a = 1000000;
@@ -66,7 +70,7 @@ std::cout << a.to_string(true) << std::endl; // prints "1,000,000\n"
 
 #### to_file( std::ofstream &outfile, unsigned int wrap = 80 )
 
-Writes a BigInt to a provided ofstream. The optional wrap parameter adds line breaks.
+Writes a `BigInt` to a provided `ofstream`. The optional `wrap` parameter adds line breaks so that each line is only `wrap` characters long.
 
 #### scientific( unsigned int decimal_points = 3 ) 
 
@@ -83,7 +87,7 @@ Returns the vector representation of the number. No conversion is made from inte
 
 #### (private) strip_zeros()
 
-Used to remove leading zeros from a BigInt.
+Used to remove leading zeros from a `BigInt`.
 
 ### Operators
 
@@ -107,17 +111,17 @@ a == b; // Yields true.
 a != b; // Yields false.
 ```
 
-The equality operator works on BigInts by examining the internal structures for digit by digit equality. 
+The equality operator works on `BigInt`s by examining the internal structures for digit by digit equality. 
 
 -----
 
-## Milestone 2:
+## Milestone 2 - Due Thursday, March 22nd by 2PM (before class)
 
 ### Methods
 
 #### add( bigint &that )
 
-Returns a new BigInt which is the sum of *this and that. *This and that are not modified by this operation.
+Returns a new `BigInt` which is the sum of `*this` and `that`. `*this` and `that` are not modified by this operation.
 
 ```c++
 bigint x = 10;
@@ -127,7 +131,7 @@ bigint z = x.add(y); // z is 25, moreover x is still 10, y is still 15.
 
 #### subtract( bigint &that )
 
-Returns a new BigInt which is the difference of *this and that. *This must be larger than that for this operation to succeed (negative values are not allowed).
+Returns a new `BigInt` which is the difference of `*this` and `that`. `*this` must be larger than `that` for this operation to succeed (negative values are not allowed).
 
 ```c++
 bigint x = 500;
@@ -138,7 +142,7 @@ bigint z = y.subtract(x); // Valid, z = 300; y = 800; x = 500;
 
 #### multiply( bigint &that )
 
-Returns a new BigInt which is the product of *this and that. *This and that should not be modified by the operation.
+Returns a new BigInt which is the product of `*this` and `that`. `*this` and `that` should not be modified by the operation.
 
 ```c++
 bigint x = 5;
@@ -148,7 +152,7 @@ bigint z = x.multiply(y); // z = 10; x = 5; y = 2;
 
 #### divide( bigint &that )
 
-Returns a new BigInt which is the quotient of *this and that. *This and that should not be modified by the operation.
+Returns a new BigInt which is the quotient of `*this` and `that`. `*this` and `that` should not be modified by the operation.
 
 ```c++
 bigint x = 6;
@@ -158,7 +162,7 @@ bigint z = x.divide(y); // z = 3; x = 6; y = 2;
 
 #### mod( bigint &that )
 
-Returns a new BigInt which is the remainder of the division between *this and that, both of which should not be modified by this operation.
+Returns a new BigInt which is the remainder of the division between `*this` and `that`, both of which should not be modified by this operation.
 
 ```c++
 bigint x = 11;
@@ -168,7 +172,7 @@ bigint z = x.mod(y); // z = 1; x = 11; y = 10;
 
 #### pow( unsigned long long n )
 
-Raises a BigInt to the given power, n, directly modifying the BigInt.
+Raises a `BigInt` to the given power, `n`, directly modifying the `BigInt`.
 
 ```c++
 bigint x = 2;
@@ -179,7 +183,7 @@ x.pow(2); // x = 4;
 
 #### Addition: +, +=
 
-Adds two BigInts together.
+Adds two `BigInts` together.
 
 ```c++
 bigint a = 1000;
@@ -191,7 +195,7 @@ c += b;
 
 #### Subtraction: -, -=
 
-Reduces one Bit Int by the other, throwing an error if the latter is larger than the former. The base implementation of this class does not permit negative values.
+Reduces one `BigInt` by the other, throwing an error if the latter is larger than the former. The base implementation of this class does not permit negative values.
 
 ```c++
 bigint a = 1000;
@@ -204,7 +208,7 @@ c -= b; // throws an error
 
 #### Multiplication: *, *=
 
-Multiplies two BigInts together.
+Multiplies two `BigInt`s together.
 
 ```c++
 bigint a = 10;
@@ -215,7 +219,7 @@ c *= a;
 
 #### Division: /, /=
 
-Performs floor division on two BigInts.
+Performs floor division on two `BigInt`s.
 
 ```c++
 bigint a = 5;
@@ -226,7 +230,7 @@ c /= 2; // c = 0
 
 #### Greater Than / Less Than: >, >=, <, <=
 
-Compares the values of two BigInts, returning true if the former is larger.
+Compares the values of two `BigInt`s, returning true if the former is larger.
 
 ```c++
 bigint a = 10;
@@ -239,7 +243,7 @@ a <= b; // Returns true.
 
 #### Modulus: %, %=
 
-Returns the remainder of the division between two BigInts.
+Returns the remainder of the division between two `BigInt`s.
 
 ```c++
 bigint a = 11;
@@ -249,4 +253,4 @@ bigint c = (a % b); // c = 2
 
 #### Stream operator, <<
 
-BigInt provides stream operators for ease of printing, the ostream (<<) operator runs `to_string`.
+`BigInt` provides stream operators for ease of printing, the `ostream` (`<<`) operator runs `to_string`.
