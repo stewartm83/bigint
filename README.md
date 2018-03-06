@@ -1,3 +1,6 @@
+% CSC 211 Assignments 4 and 5
+% A big-integer class
+
 # BigInt
 
 A class for storing very large numbers.
@@ -15,6 +18,16 @@ Below you can find a comprehensive overview of what is due during each phase of 
 [1]: [https://gmplib.org/]
 
 -----
+
+## Getting Started
+
+In your Docker environment (or alternative such as codeanywhere.com) run the following command:
+
+```
+git clone https://github.com/csc211/a4
+```
+
+This will give you a `compile` script, and some starter code for the `bigint` class. Note that there is a `main.cpp` that may look a little hard to understand. It uses the `catch` testing framework, and has a few test cases filled out. You are welcome to use this to build up your test cases to be sure your bigint class is implemented correctly.
 
 ## Submitting
 
@@ -254,3 +267,13 @@ bigint c = (a % b); // c = 2
 #### Stream operator, <<
 
 `BigInt` provides stream operators for ease of printing, the `ostream` (`<<`) operator runs `to_string`.
+
+## Grading Rubric
+
+For this assignment, correctly passing all tests on Mimir is worth 80% of your grade. The remaining 20% is based on reasonable commenting habits, and the structure and organization of your code.
+
+
+## Submitting
+
+You will submit `bigint.cpp` via [Mimir,](https://mimir.io/) where its functional correctness will be graded automatically.
+For this assignment, you only get 5 submissions to Mimir, so make sure to **test locally** first.
