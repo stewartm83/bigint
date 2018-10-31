@@ -1,7 +1,6 @@
-//
-// Started by Tom on 2/9/18.
-//
-
+/*
+A class to represent arbitrarily large integers
+*/
 #include "bigint.h"
 
 

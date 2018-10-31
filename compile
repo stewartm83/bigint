@@ -12,9 +12,10 @@ echo
 rm -f ./main.o
 
 # Variables:
-compiler=g++
+compiler=clang++
+flags=-g -std=c++11 -Wall -Wextra -Werror -Wfatal-errors -pedantic
 precompiled=./catch/catch-main.o
-ouput=main.o
+output=test-bigint
 
 # Functions:
 usage () {
@@ -29,7 +30,7 @@ precompile () {
     echo '#define CATCH_CONFIG_MAIN
     #include "catch.hpp"' > ./catch/catch-main.cpp
     
-    g++ -std=c++11 ./catch/catch-main.cpp -c -o ./catch/catch-main.o
+    $compiler $flags ./catch/catch-main.cpp -c -o ./catch/catch-main.o
     rm -f ./catch/catch-main.cpp
 }
 
@@ -70,8 +71,5 @@ fi
 
 # Compile:
 padded_print "Compiling_Tests."
-$compiler -std=c++11 catch/catch-main.o main.cpp bigint/bigint.cpp -o $ouput
+$compiler $flags catch/catch-main.o main.cpp bigint/bigint.cpp -o $output
 
-# Run the tests:
-padded_print "Running_Tests."
-./$ouput

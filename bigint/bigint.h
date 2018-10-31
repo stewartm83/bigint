@@ -15,7 +15,7 @@
 #include <fstream>
 #include <iostream>
 
-typedef uint_least8_t vec_bin;
+typedef unsigned short vec_bin;
 
 class bigint {
 private:

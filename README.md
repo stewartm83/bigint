@@ -1,4 +1,4 @@
-% CSC 211 Assignments 4 and 5
+% CSC 211 Assignments 5 and 6
 % A big-integer class
 
 # BigInt
@@ -13,6 +13,14 @@ Big integers refer to numbers that are too large to be held in a computers memor
 
 For this assignment you will create a library capable of holding arbitrarily large numbers capable of basic arithmetic operations. It is a two-phase project, starting with construction and printing, ending with the arithmetic operations. 
 
+How do we go about holding arbitrarily large numbers? You have already implemented a **dynamic array**; this earns you the right to use a valuable part of the C++ standard library: the `std::vector` class. For this assignment, we will represent a bigint as the following type:
+
+```C
+std::vector<vec_bin> number;
+```
+
+Which you can read as "a number is a vector of vec_bins" while a `vec_bin` is an integer type that will represent a **single digit** of a number. So we're going to represent numbers just like you learned in school: as a sequence of digits. 
+
 Below you can find a comprehensive overview of what is due during each phase of the project.
 
 [1]: [https://gmplib.org/]
@@ -21,10 +29,10 @@ Below you can find a comprehensive overview of what is due during each phase of 
 
 ## Getting Started
 
-In your Docker environment (or alternative such as codeanywhere.com) run the following command:
+In your CS50IDE environment run the following command:
 
 ```
-git clone https://github.com/csc211/a4
+git clone https://github.com/csc211/bigint
 ```
 
 This will give you a `compile` script, and some starter code for the `bigint` class. Note that there is a `main.cpp` that may look a little hard to understand. It uses the `catch` testing framework, and has a few test cases filled out. You are welcome to use this to build up your test cases to be sure your bigint class is implemented correctly.
@@ -33,7 +41,7 @@ This will give you a `compile` script, and some starter code for the `bigint` cl
 
 For both Milestone 1 and Milestone 2, you will submit your code to Mimir. All you need to submit is `bigint.cpp`, since we've already given you `bigint.h` and a `compile` script.
 
-## Milestone 1 - Due Thursday, March 8th by 2PM (before class)
+## Milestone 1 - Due Thursday, November 8th by 12PM (before class)
 
 For this milestone, you will get the construction, number access, comparison and display methods working.
 
@@ -128,7 +136,7 @@ The equality operator works on `BigInt`s by examining the internal structures fo
 
 -----
 
-## Milestone 2 - Due Thursday, March 22nd by 2PM (before class)
+## Milestone 2 - Due Thursday, November 15th by 12PM (before class)
 
 ### Methods
 
