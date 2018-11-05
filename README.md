@@ -116,10 +116,13 @@ Used to remove leading zeros from a `BigInt`.
 
 ```c++
 bigint a(123);
-int x = a[2]; // x == 2.
+int x = a[2]; // x == 1.
 ```
 
 Yields the digit at the specified index. This method is typically used for testing, and during internal arithmetic operations.
+Note that digits are stored in the underlying vector such that x[0] is the *least significant digit* (i.e. the 1's place) and `x[n]` (where n is the last element of the vector) is the *most significant digit*.
+
+#### Yes, this might look backwards to you.
 
 ### Comparators
 

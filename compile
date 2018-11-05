@@ -13,7 +13,8 @@ rm -f ./main.o
 
 # Variables:
 compiler=clang++
-flags=-g -std=c++11 -Wall -Wextra -Werror -Wfatal-errors -pedantic
+flags="-g -std=c++11"
+wflags="-Wall -Wextra -Werror -Wfatal-errors -pedantic"
 precompiled=./catch/catch-main.o
 output=test-bigint
 
@@ -26,10 +27,10 @@ usage () {
 
 precompile () {
     padded_print "Precompiling_Catch."
-    
+
     echo '#define CATCH_CONFIG_MAIN
     #include "catch.hpp"' > ./catch/catch-main.cpp
-    
+    g++ -std=c++11 ./catch/catch-main.cpp -c -o ./catch/catch-main.o
     $compiler $flags ./catch/catch-main.cpp -c -o ./catch/catch-main.o
     rm -f ./catch/catch-main.cpp
 }
@@ -41,20 +42,20 @@ padded_print () {
 
 while getopts ":hfc:" opt; do
     case ${opt} in
-        h ) 
-            usage 
+        h )
+            usage
             exit 0
         ;;
-        f ) 
+        f )
             padded_print "Removing_precompiled_binaries."
-            rm -f catch/catch-main.o 
+            rm -f catch/catch-main.o
         ;;
-        c ) 
-            compiler=$OPTARG 
+        c )
+            compiler=$OPTARG
         ;;
-        \? ) 
+        \? )
             echo "Invalid_usage:"
-            usage 
+            usage
             exit 1
         ;;
     esac
@@ -71,5 +72,5 @@ fi
 
 # Compile:
 padded_print "Compiling_Tests."
-$compiler $flags catch/catch-main.o main.cpp bigint/bigint.cpp -o $output
+$compiler $flags $wflags catch/catch-main.o main.cpp bigint/bigint.cpp -o $output
 
