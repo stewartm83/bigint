@@ -8,8 +8,7 @@ echo "######################### BigInt Compilation Started. ####################
 echo
 echo
 
-# Clean up the current repo:
-rm -f ./main.o
+
 
 # Variables:
 compiler=clang++
@@ -17,6 +16,9 @@ flags="-g -std=c++11"
 wflags="-Wall -Wextra -Werror -Wfatal-errors -pedantic"
 precompiled=./catch/catch-main.o
 output=test-bigint
+
+# Clean up the current repo:
+rm -f $output
 
 # Functions:
 usage () {
